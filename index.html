@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>UIU Tuition Fee Calculator | Semester Fee, Waiver, Scholarship & Installment</title>
+    <meta name="description"
+        content="UIU Tuition Fee Calculator for United International University students. Calculate semester tuition fee, waiver, scholarship, retake fee, FYDP fee, registration fee, extras, and installment breakdown easily." />
+    <meta name="keywords"
+        content="UIU Tuition Fee Calculator, United International University, UIU fee calculator, semester fee calculator, tuition calculator, scholarship calculator, waiver calculator, installment calculator, Bangladesh university fee calculator" />
+    <meta name="author" content="Md Tashin Parvez" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0B50BE" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="UIU Tuition Fee Calculator" />
+    <meta property="og:description"
+        content="Calculate UIU semester tuition, waiver, scholarship, retake, FYDP, registration fee, extras, and installment plan in one place." />
+    <meta property="og:site_name" content="UIU Tuition Fee Calculator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="UIU Tuition Fee Calculator" />
+    <meta name="twitter:description"
+        content="A clean and mobile-friendly calculator for UIU semester fee, discounts, and installment breakdown." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        :root {
+            --primary: #0B50BE;
+            --primary-dark: #1447a8;
+            --secondary: #F84418;
+            --accent: #FFB004;
+            --bg-light: #FFFFFF;
+            --text: #2E0442;
+            --muted: #6B7280;
+            --soft-blue: rgba(11, 80, 190, 0.08);
+            --soft-orange: rgba(248, 68, 24, 0.08);
+            --soft-accent: rgba(255, 176, 4, 0.12);
+            --border: rgba(46, 4, 66, 0.12);
+            --shadow: 0 14px 34px rgba(46, 4, 66, 0.10);
+            --shadow-soft: 0 8px 20px rgba(46, 4, 66, 0.08);
+            --radius-xl: 28px;
+            --radius-lg: 22px;
+            --radius-md: 16px;
+            --radius-sm: 12px;
+            --transition: 0.25s ease;
+            --max-width: 1180px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Manrope", sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(11, 80, 190, 0.10), transparent 30%),
+                radial-gradient(circle at top right, rgba(248, 68, 24, 0.10), transparent 30%),
+                linear-gradient(180deg, #f7faff 0%, #eef4ff 100%);
+            min-height: 100vh;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: min(var(--max-width), calc(100% - 24px));
+            margin: 14px auto 24px;
+        }
+
+        .hero {
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(255, 255, 255, 0.75);
+            border-radius: 32px;
+            box-shadow: var(--shadow);
+            padding: 22px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(14px);
+        }
+
+        .hero::before,
+        .hero::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero::before {
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(circle, rgba(11, 80, 190, 0.12), transparent 70%);
+            top: -80px;
+            right: -80px;
+        }
+
+        .hero::after {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(248, 68, 24, 0.12), transparent 70%);
+            bottom: -90px;
+            left: -60px;
+        }
+
+        .hero-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 18px;
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .logo-wrap {
+            width: 74px;
+            height: 74px;
+            min-width: 74px;
+            border-radius: 20px;
+            background: #fff;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .logo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: var(--soft-blue);
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 8px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-weight: 900;
+        }
+
+        h1 {
+            margin: 0 0 8px;
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            line-height: 1.08;
+            letter-spacing: -0.04em;
+            color: var(--text);
+        }
+
+        .subtitle {
+            margin: 0;
+            max-width: 760px;
+            color: var(--muted);
+            line-height: 1.65;
+            font-size: 0.98rem;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1.08fr 0.92fr;
+            gap: 20px;
+            margin-top: 20px;
+            align-items: stretch;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow);
+            padding: 22px;
+            backdrop-filter: blur(12px);
+        }
+
+        .card h2 {
+            margin: 0 0 6px;
+            font-size: 1.32rem;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+
+        .lead {
+            margin: 0 0 18px;
+            color: var(--muted);
+            line-height: 1.65;
+            font-size: 0.95rem;
+        }
+
+        .section-title {
+            margin: 18px 0 12px;
+            font-size: 0.88rem;
+            color: var(--primary);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            min-width: 0;
+        }
+
+        .field.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-size: 0.94rem;
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        .hint {
+            font-size: 0.8rem;
+            color: var(--muted);
+            line-height: 1.45;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            border: 1px solid var(--border);
+            outline: none;
+            background: #fff;
+            color: var(--text);
+            border-radius: 14px;
+            padding: 13px 14px;
+            font-size: 1rem;
+            font-family: inherit;
+            font-weight: 700;
+            transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+            appearance: textfield;
+            min-height: 50px;
+        }
+
+        input[type="number"]:focus {
+            border-color: rgba(11, 80, 190, 0.35);
+            box-shadow: 0 0 0 4px rgba(11, 80, 190, 0.10);
+            transform: translateY(-1px);
+        }
+
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .extras-note {
+            grid-column: 1 / -1;
+            margin: -2px 0 2px;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: linear-gradient(180deg, rgba(11, 80, 190, 0.06), rgba(11, 80, 190, 0.02));
+            border: 1px solid rgba(11, 80, 190, 0.12);
+            color: var(--muted);
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        .extras-note strong {
+            color: var(--primary);
+        }
+
+        .discount-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .choice-box {
+            padding: 14px;
+            border-radius: 18px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(244, 247, 255, 0.96));
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .choice-box h3 {
+            margin: 0 0 10px;
+            font-size: 1rem;
+            color: var(--text);
+            font-weight: 900;
+        }
+
+        .radio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 8px;
+        }
+
+        .radio-card {
+            position: relative;
+        }
+
+        .radio-card input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .radio-card label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
+            padding: 10px 8px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: #fff;
+            font-weight: 900;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        .radio-card label:hover {
+            border-color: rgba(11, 80, 190, 0.28);
+            transform: translateY(-1px);
+        }
+
+        .radio-card input:checked+label {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 12px 22px rgba(11, 80, 190, 0.22);
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 22px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            border: none;
+            outline: none;
+            border-radius: 14px;
+            padding: 14px 20px;
+            font-size: 0.97rem;
+            font-weight: 900;
+            font-family: inherit;
+            cursor: pointer;
+            transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+            min-height: 52px;
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            box-shadow: 0 14px 24px rgba(11, 80, 190, 0.22);
+        }
+
+        .btn-secondary {
+            background: #fff;
+            color: var(--text);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .alert {
+            display: none;
+            padding: 14px 16px;
+            border-radius: 16px;
+            background: rgba(248, 68, 24, 0.10);
+            border: 1px solid rgba(248, 68, 24, 0.18);
+            color: var(--secondary);
+            font-size: 0.92rem;
+            font-weight: 800;
+            line-height: 1.5;
+            margin-bottom: 14px;
+        }
+
+        .result-column {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.92);
+            color: var(--text);
+        }
+
+        .hero-result {
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-result::after {
+            content: "";
+            position: absolute;
+            right: -30px;
+            top: -30px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 176, 4, 0.28), transparent 70%);
+        }
+
+        .result-label {
+            font-size: 0.82rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.84);
+            margin-bottom: 8px;
+        }
+
+        .result-amount {
+            margin: 0;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            line-height: 1.05;
+            color: #fff;
+        }
+
+        .result-note {
+            margin-top: 10px;
+            color: rgba(255, 255, 255, 0.94);
+            line-height: 1.6;
+            font-size: 0.93rem;
+        }
+
+        .breakdown {
+            display: grid;
+            gap: 10px;
+        }
+
+        .break-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 14px;
+            padding: 13px 15px;
+            border-radius: 16px;
+            background: rgba(11, 80, 190, 0.05);
+            border: 1px solid rgba(11, 80, 190, 0.08);
+        }
+
+        .break-item strong {
+            color: var(--text);
+            font-weight: 900;
+        }
+
+        .break-item span {
+            font-weight: 900;
+            text-align: right;
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .break-item.total {
+            background: rgba(255, 176, 4, 0.14);
+            border-color: rgba(255, 176, 4, 0.22);
+        }
+
+        .status-stack {
+            display: grid;
+            gap: 10px;
+        }
+
+        .status-box {
+            padding: 12px 14px;
+            border-radius: 14px;
+            font-size: 0.9rem;
+            line-height: 1.55;
+            font-weight: 800;
+        }
+
+        .status-box strong {
+            display: block;
+            margin-bottom: 3px;
+            font-size: 0.86rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 900;
+        }
+
+        .status-applied {
+            background: rgba(16, 185, 129, 0.14);
+            border: 1px solid rgba(16, 185, 129, 0.22);
+            color: #065f46;
+        }
+
+        .status-not-applied {
+            background: rgba(11, 80, 190, 0.05);
+            border: 1px solid rgba(11, 80, 190, 0.10);
+            color: var(--text);
+        }
+
+        .status-warning {
+            background: #ffdede;
+            border: 1px solid #ffb6b6;
+            color: #8a1010;
+        }
+
+        .installment-wrapper {
+            margin-top: 20px;
+        }
+
+        .installment-shell {
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow);
+            padding: 22px;
+        }
+
+        .installment-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .installment-header h2 {
+            margin: 0;
+            color: var(--text);
+            font-size: 1.25rem;
+            font-weight: 900;
+        }
+
+        .installment-sub {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.6;
+            font-size: 0.94rem;
+        }
+
+        .installment-layout {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .installment-type {
+            border-radius: 22px;
+            padding: 18px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-soft);
+            min-width: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .installment-type.type-1 {
+            background: linear-gradient(180deg, rgba(11, 80, 190, 0.08), rgba(255, 255, 255, 0.98));
+        }
+
+        .installment-type.type-2 {
+            background: linear-gradient(180deg, rgba(248, 68, 24, 0.08), rgba(255, 255, 255, 0.98));
+        }
+
+        .installment-badge {
+            display: inline-flex;
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .type-1 .installment-badge {
+            background: rgba(11, 80, 190, 0.12);
+            color: var(--primary);
+        }
+
+        .type-2 .installment-badge {
+            background: rgba(248, 68, 24, 0.12);
+            color: var(--secondary);
+        }
+
+        .installment-type h3 {
+            margin: 0 0 8px;
+            font-size: 1.08rem;
+            color: var(--text);
+            font-weight: 900;
+        }
+
+        .small-note {
+            margin: 0 0 12px;
+            font-size: 0.84rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .installment-grid {
+            display: grid;
+            gap: 10px;
+        }
+
+        .installment-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.94);
+            border: 1px solid var(--border);
+        }
+
+        .installment-row strong {
+            color: var(--text);
+            font-size: 0.93rem;
+            font-weight: 900;
+        }
+
+        .installment-row span {
+            color: var(--muted);
+            font-weight: 900;
+            text-align: right;
+            font-size: 0.93rem;
+        }
+
+        .type2-paid-box {
+            margin-bottom: 12px;
+            padding: 14px;
+            border-radius: 16px;
+            background: rgba(248, 68, 24, 0.06);
+            border: 1px solid rgba(248, 68, 24, 0.12);
+        }
+
+        .type2-paid-box label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 900;
+        }
+
+        .type2-paid-box .hint {
+            margin-top: 8px;
+        }
+
+        .note-card,
+        .logic-card,
+        .footer-card {
+            margin-top: 20px;
+        }
+
+        .compact-note {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: rgba(11, 80, 190, 0.06);
+            border: 1px solid rgba(11, 80, 190, 0.12);
+            color: var(--text);
+            font-size: 0.93rem;
+            line-height: 1.5;
+        }
+
+        .compact-note strong {
+            color: var(--primary);
+            flex-shrink: 0;
+            font-weight: 900;
+        }
+
+        .logic-card ul {
+            padding-left: 20px;
+            margin: 10px 0 0;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .logic-card code {
+            display: inline-block;
+            background: rgba(11, 80, 190, 0.08);
+            color: var(--primary);
+            border-radius: 8px;
+            padding: 2px 8px;
+            font-size: 0.9rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        }
+
+        .footer-card {
+            text-align: center;
+            padding: 22px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .footer-card strong {
+            color: var(--text);
+            font-weight: 900;
+        }
+
+        .footer-card .name {
+            margin-top: 8px;
+            font-weight: 800;
+        }
+
+        @media (max-width: 980px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .result-column {
+                height: auto;
+            }
+
+            .installment-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: min(100% - 14px, 100%);
+                margin: 8px auto 16px;
+            }
+
+            .hero,
+            .card,
+            .installment-shell {
+                padding: 16px;
+                border-radius: 22px;
+            }
+
+            .hero-top {
+                margin-bottom: 14px;
+            }
+
+            .brand {
+                align-items: center;
+                gap: 12px;
+            }
+
+            .logo-wrap {
+                width: 58px;
+                height: 58px;
+                min-width: 58px;
+                border-radius: 16px;
+                padding: 8px;
+            }
+
+            .subtitle {
+                font-size: 0.92rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .discount-group {
+                grid-template-columns: 1fr;
+            }
+
+            .radio-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .radio-card label {
+                min-height: 46px;
+                font-size: 0.9rem;
+                padding: 8px 6px;
+            }
+
+            .actions {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            .break-item,
+            .installment-row {
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            h1 {
+                font-size: 1.55rem;
+            }
+
+            .eyebrow {
+                font-size: 0.72rem;
+                padding: 6px 10px;
+            }
+
+            .actions {
+                grid-template-columns: 1fr;
+            }
+
+            .radio-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 6px;
+            }
+
+            .radio-card label {
+                min-height: 42px;
+                border-radius: 12px;
+                font-size: 0.82rem;
+            }
+
+            .break-item strong,
+            .break-item span,
+            .installment-row strong,
+            .installment-row span {
+                font-size: 0.88rem;
+            }
+
+            .installment-type {
+                padding: 14px;
+            }
+
+            .compact-note {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 4px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <section class="hero">
+            <div class="hero-top">
+                <div>
+                    <div class="brand">
+                        <div class="logo-wrap">
+                            <img src="uiuTFC2.png" alt="United International University logo" />
+                        </div>
+                        <div>
+                            <div class="eyebrow">United International University</div>
+                            <h1>UIU Tuition Fee Calculator</h1>
+                        </div>
+                    </div>
+                    <p class="subtitle">
+                        A cleaner, faster, and mobile-friendly semester fee calculator for UIU students. Calculate
+                        discount-adjusted tuition, FYDP, additional fees, and installment amounts in one place.
+                    </p>
+                </div>
+            </div>
+
+            <div class="main-grid">
+                <section class="card">
+                    <h2>Enter Semester Information</h2>
+                    <p class="lead">
+                        Input your credit and fee information below. The calculator follows your logic and shows final
+                        payable fee and installment breakdown.
+                    </p>
+
+                    <div class="alert" id="alertBox"></div>
+
+                    <div class="section-title">Credits & Fees</div>
+                    <div class="form-grid">
+                        <div class="field">
+                            <label for="totalCredits">Total Credits (New + Retake)</label>
+                            <input type="number" id="totalCredits" min="0" step="0.5" placeholder="e.g. 15" />
+                        </div>
+
+                        <div class="field">
+                            <label for="retakeCredits">Retake Credits (if any)</label>
+                            <input type="number" id="retakeCredits" min="0" step="0.5" placeholder="e.g. 3" />
+                        </div>
+
+                        <div class="field">
+                            <label for="fydpCredits">FYDP Credits (if any)</label>
+                            <input type="number" id="fydpCredits" min="0" step="0.5" placeholder="e.g. 2" />
+                        </div>
+
+                        <div class="field">
+                            <label for="perCreditFee">Per Credit Fee</label>
+                            <input type="number" id="perCreditFee" min="0" step="1" placeholder="e.g. 6500" />
+                        </div>
+
+                        <div class="field">
+                            <label for="registrationFee">Registration Fee (if any)</label>
+                            <input type="number" id="registrationFee" min="0" step="1" placeholder="e.g. 5000" />
+                        </div>
+
+                        <div class="field">
+                            <label for="extras">Extras</label>
+                            <input type="number" id="extras" min="0" step="1" placeholder="e.g. 2000" />
+                        </div>
+
+                        <div class="extras-note">
+                            <strong>Extras may include:</strong> late registration fee, gym membership fee,
+                            transportation fee, lab-related charges, or other semester-specific additional costs.
+                        </div>
+                    </div>
+
+                    <div class="section-title">Discount Options</div>
+                    <div class="discount-group">
+                        <div class="choice-box">
+                            <h3>Waiver Percentage</h3>
+                            <div class="radio-grid">
+                                <div class="radio-card">
+                                    <input type="radio" id="waiver25" name="waiver" value="25" />
+                                    <label for="waiver25">25%</label>
+                                </div>
+                                <div class="radio-card">
+                                    <input type="radio" id="waiver50" name="waiver" value="50" />
+                                    <label for="waiver50">50%</label>
+                                </div>
+                                <div class="radio-card">
+                                    <input type="radio" id="waiver100" name="waiver" value="100" />
+                                    <label for="waiver100">100%</label>
+                                </div>
+                            </div>
+                            <div class="hint">Leave unselected if no waiver applies.</div>
+                        </div>
+
+                        <div class="choice-box">
+                            <h3>Scholarship Percentage</h3>
+                            <div class="radio-grid">
+                                <div class="radio-card">
+                                    <input type="radio" id="sch25" name="scholarship" value="25" />
+                                    <label for="sch25">25%</label>
+                                </div>
+                                <div class="radio-card">
+                                    <input type="radio" id="sch50" name="scholarship" value="50" />
+                                    <label for="sch50">50%</label>
+                                </div>
+                                <div class="radio-card">
+                                    <input type="radio" id="sch100" name="scholarship" value="100" />
+                                    <label for="sch100">100%</label>
+                                </div>
+                            </div>
+                            <div class="hint">Only the higher percentage of scholarship and waiver will be used.</div>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <button class="btn-primary" id="calculateBtn">Calculate Fee</button>
+                        <button class="btn-secondary" id="resetBtn" type="button">Reset</button>
+                    </div>
+                </section>
+
+                <aside class="card result-column">
+                    <div class="hero-result">
+                        <div class="result-label">Final Payable Fee</div>
+                        <p class="result-amount" id="finalFeeDisplay">৳ 0.00</p>
+                        <div class="result-note" id="resultSummary">
+                            Enter your information and press <strong>Calculate Fee</strong> to view the result and
+                            installment breakdown.
+                        </div>
+                    </div>
+
+                    <div class="breakdown">
+                        <div class="break-item">
+                            <strong>Discount Applied</strong>
+                            <span id="discountDisplay">0%</span>
+                        </div>
+
+                        <div class="break-item">
+                            <strong>Fresh Credits</strong>
+                            <span id="freshCreditsDisplay">0</span>
+                        </div>
+
+                        <div class="break-item">
+                            <strong>Fresh Fee (After Discount)</strong>
+                            <span id="freshFeeDisplay">৳ 0.00</span>
+                        </div>
+
+                        <div class="break-item">
+                            <strong>Retake Credit Fee</strong>
+                            <span id="retakeFeeDisplay">৳ 0.00</span>
+                        </div>
+
+                        <div class="break-item">
+                            <strong>FYDP Fee</strong>
+                            <span id="fydpFeeDisplay">৳ 0.00</span>
+                        </div>
+
+                        <div class="break-item">
+                            <strong>Registration Fee</strong>
+                            <span id="registrationFeeDisplay">৳ 0.00</span>
+                        </div>
+
+                        <div class="break-item">
+                            <strong>Extras</strong>
+                            <span id="extrasDisplay">৳ 0.00</span>
+                        </div>
+
+                        <div class="break-item total">
+                            <strong>Total Fee</strong>
+                            <span id="totalFeeDisplay">৳ 0.00</span>
+                        </div>
+                    </div>
+
+                    <div class="status-stack">
+                        <div class="status-box status-not-applied" id="discountIndicator">
+                            <strong>Discount Status</strong>
+                            No waiver or scholarship applied yet.
+                        </div>
+
+                        <div class="status-box status-warning" id="freshCreditWarning" style="display: none;">
+                            <strong>Important</strong>
+                            Fresh credits are below 9, so no waiver or scholarship has been applied in this
+                            calculation.
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <div class="installment-wrapper">
+                <section class="installment-shell">
+                    <div class="installment-header">
+                        <div>
+                            <h2>Payment in Installment</h2>
+                            <p class="installment-sub">
+                                Type 1 and Type 2 are separated below with a clearer layout for desktop and mobile
+                                users.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="installment-layout">
+                        <div class="installment-type type-1">
+                            <div class="installment-badge">Type 1</div>
+                            <h3>Without Paying During Registration</h3>
+                            <p class="small-note">
+                                This type uses the full final payable fee. Distribution: <strong>40% · 30% ·
+                                    30%</strong>.
+                            </p>
+
+                            <div class="installment-grid">
+                                <div class="installment-row">
+                                    <strong>1st Installment (40%)</strong>
+                                    <span id="type1First">৳ 0.00</span>
+                                </div>
+                                <div class="installment-row">
+                                    <strong>2nd Installment (30%)</strong>
+                                    <span id="type1Second">৳ 0.00</span>
+                                </div>
+                                <div class="installment-row">
+                                    <strong>3rd Installment (30%)</strong>
+                                    <span id="type1Third">৳ 0.00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="installment-type type-2">
+                            <div class="installment-badge">Type 2</div>
+                            <h3>After Paying During Registration</h3>
+                            <p class="small-note">
+                                If you already paid some amount during registration, enter that amount below.
+                                Example: <strong>15000</strong>. The remaining payable amount will be used for Type 2
+                                installment calculation.
+                            </p>
+
+                            <div class="type2-paid-box">
+                                <label for="paidAtRegistration">Amount Paid During Registration</label>
+                                <input type="number" id="paidAtRegistration" min="0" step="1" value="15000"
+                                    placeholder="e.g. 15000" />
+                                <div class="hint">
+                                    Type 2 formula: <strong>Remaining Payable = Final Payable Fee - Paid During
+                                        Registration</strong>
+                                </div>
+                            </div>
+
+                            <div class="installment-grid">
+                                <div class="installment-row">
+                                    <strong>Paid During Registration</strong>
+                                    <span id="paidAtRegistrationDisplay">৳ 0.00</span>
+                                </div>
+                                <div class="installment-row">
+                                    <strong>Remaining Payable</strong>
+                                    <span id="type2Base">৳ 0.00</span>
+                                </div>
+                                <div class="installment-row">
+                                    <strong>1st Installment (40%)</strong>
+                                    <span id="type2First">৳ 0.00</span>
+                                </div>
+                                <div class="installment-row">
+                                    <strong>2nd Installment (30%)</strong>
+                                    <span id="type2Second">৳ 0.00</span>
+                                </div>
+                                <div class="installment-row">
+                                    <strong>3rd Installment (30%)</strong>
+                                    <span id="type2Third">৳ 0.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <section class="card note-card">
+            <p class="compact-note">
+                <strong>Important Note</strong>
+                Please enter your information carefully before calculating the fee.
+            </p>
+        </section>
+
+        <section class="card logic-card">
+            <h2>Calculator Logic</h2>
+            <p class="lead">All written logic is shown below the calculator as requested.</p>
+            <ul>
+                <li><code>discount = max(scholarship percentage, waiver percentage)</code></li>
+                <li>Only the maximum one counts, not both. If both are 25%, then 25% counts. If one is 25% and another
+                    is 50%, then 50% counts.</li>
+                <li><code>fresh credits = Total Credits - Retake Credits - FYDP Credits</code></li>
+                <li>If <code>fresh credits &lt; 9</code>, then <code>discount = 0</code> even if waiver or scholarship
+                    is selected.</li>
+                <li><code>fresh fee = (fresh credits × Per Credit Fee) × (100 - discount)%</code></li>
+                <li><code>retake credit fee = (retake credits × Per Credit Fee) / 2</code></li>
+                <li>FYDP credit does not fall into scholarship and waiver, so it is calculated separately.</li>
+                <li><code>fydp fee = fydp credits × Per Credit Fee</code></li>
+                <li>Registration Fee and Extras do not fall into scholarship and waiver, so they are directly added to
+                    total fee.</li>
+                <li><code>Total Fee = fresh fee + retake credit fee + fydp fee + Registration Fee + Extras</code></li>
+                <li>The Final Fee is displayed to the user.</li>
+            </ul>
+
+            <div class="section-title">Payment in Installment (from payable amount)</div>
+            <ul>
+                <li><strong>Type 1:</strong> 40% · 30% · 30% when you have not paid anything while registration.</li>
+                <li><strong>Type 2:</strong> 40% · 30% · 30% after subtracting the amount you already paid during
+                    registration, such as 15000.</li>
+                <li><code>remaining payable = final payable fee - paid during registration</code></li>
+                <li><code>1st installment = 40%</code>, <code>2nd installment = 30%</code>,
+                    <code>3rd installment = 30%</code>
+                </li>
+            </ul>
+        </section>
+
+        <section class="card footer-card">
+            <strong>Developed by Md Tashin Parvez</strong>
+            <div class="name">
+                GitHub:
+                <a href="https://github.com/TashinParvez" target="_blank" rel="noopener noreferrer">
+                    github.com/TashinParvez
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const $ = (id) => document.getElementById(id);
+
+        const elements = {
+            totalCredits: $("totalCredits"),
+            retakeCredits: $("retakeCredits"),
+            fydpCredits: $("fydpCredits"),
+            perCreditFee: $("perCreditFee"),
+            registrationFee: $("registrationFee"),
+            extras: $("extras"),
+            paidAtRegistration: $("paidAtRegistration"),
+
+            calculateBtn: $("calculateBtn"),
+            resetBtn: $("resetBtn"),
+            alertBox: $("alertBox"),
+
+            finalFeeDisplay: $("finalFeeDisplay"),
+            resultSummary: $("resultSummary"),
+            discountDisplay: $("discountDisplay"),
+            freshCreditsDisplay: $("freshCreditsDisplay"),
+            freshFeeDisplay: $("freshFeeDisplay"),
+            retakeFeeDisplay: $("retakeFeeDisplay"),
+            fydpFeeDisplay: $("fydpFeeDisplay"),
+            registrationFeeDisplay: $("registrationFeeDisplay"),
+            extrasDisplay: $("extrasDisplay"),
+            totalFeeDisplay: $("totalFeeDisplay"),
+            discountIndicator: $("discountIndicator"),
+            freshCreditWarning: $("freshCreditWarning"),
+
+            type1First: $("type1First"),
+            type1Second: $("type1Second"),
+            type1Third: $("type1Third"),
+
+            paidAtRegistrationDisplay: $("paidAtRegistrationDisplay"),
+            type2Base: $("type2Base"),
+            type2First: $("type2First"),
+            type2Second: $("type2Second"),
+            type2Third: $("type2Third")
+        };
+
+        function getNumber(input) {
+            const value = parseFloat(input.value);
+            return isNaN(value) ? 0 : value;
+        }
+
+        function getSelectedPercentage(name) {
+            const selected = document.querySelector(`input[name="${name}"]:checked`);
+            return selected ? parseFloat(selected.value) : 0;
+        }
+
+        function formatCurrency(amount) {
+            return `৳ ${amount.toLocaleString("en-BD", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            })}`;
+        }
+
+        function formatCredit(value) {
+            return Number.isInteger(value) ? String(value) : value.toFixed(2);
+        }
+
+        function showAlert(message) {
+            elements.alertBox.style.display = "block";
+            elements.alertBox.textContent = message;
+        }
+
+        function hideAlert() {
+            elements.alertBox.style.display = "none";
+            elements.alertBox.textContent = "";
+        }
+
+        function installment(base) {
+            return {
+                first: base * 0.40,
+                second: base * 0.30,
+                third: base * 0.30
+            };
+        }
+
+        function updateDiscountStatus(data) {
+            if (data.freshCredits < 9) {
+                elements.freshCreditWarning.style.display = "block";
+            } else {
+                elements.freshCreditWarning.style.display = "none";
+            }
+
+            if (data.discountApplied && data.discount > 0) {
+                elements.discountIndicator.className = "status-box status-applied";
+                elements.discountIndicator.innerHTML = `
+                    <strong>Discount Status</strong>
+                    ${data.discountSource} applied successfully at ${data.discount}% on fresh credits.
+                `;
+            } else if (data.requestedDiscount > 0 && data.freshCredits < 9) {
+                elements.discountIndicator.className = "status-box status-not-applied";
+                elements.discountIndicator.innerHTML = `
+                    <strong>Discount Status</strong>
+                    ${data.requestedDiscount}% was selected, but it was not applied because fresh credits are below 9.
+                `;
+            } else {
+                elements.discountIndicator.className = "status-box status-not-applied";
+                elements.discountIndicator.innerHTML = `
+                    <strong>Discount Status</strong>
+                    No waiver or scholarship applied.
+                `;
+            }
+        }
+
+        function updateUI(data) {
+            elements.discountDisplay.textContent = `${data.discount}%`;
+            elements.freshCreditsDisplay.textContent = formatCredit(data.freshCredits);
+            elements.freshFeeDisplay.textContent = formatCurrency(data.freshFee);
+            elements.retakeFeeDisplay.textContent = formatCurrency(data.retakeFee);
+            elements.fydpFeeDisplay.textContent = formatCurrency(data.fydpFee);
+            elements.registrationFeeDisplay.textContent = formatCurrency(data.registrationFee);
+            elements.extrasDisplay.textContent = formatCurrency(data.extras);
+            elements.totalFeeDisplay.textContent = formatCurrency(data.totalFee);
+            elements.finalFeeDisplay.textContent = formatCurrency(data.totalFee);
+
+            elements.type1First.textContent = formatCurrency(data.type1.first);
+            elements.type1Second.textContent = formatCurrency(data.type1.second);
+            elements.type1Third.textContent = formatCurrency(data.type1.third);
+
+            elements.paidAtRegistrationDisplay.textContent = formatCurrency(data.paidAtRegistration);
+            elements.type2Base.textContent = formatCurrency(data.type2Base);
+            elements.type2First.textContent = formatCurrency(data.type2.first);
+            elements.type2Second.textContent = formatCurrency(data.type2.second);
+            elements.type2Third.textContent = formatCurrency(data.type2.third);
+
+            if (data.freshCredits < 9 && data.requestedDiscount > 0) {
+                elements.resultSummary.innerHTML = `
+                    Fresh credits are below <strong>9</strong>, so no waiver or scholarship was applied.
+                    FYDP, registration fee, and extras were added separately.
+                `;
+            } else if (data.discountApplied && data.discount > 0) {
+                elements.resultSummary.innerHTML = `
+                    Final payable fee was calculated using the <strong>${data.discount}% ${data.discountSource.toLowerCase()}</strong>.
+                    FYDP, registration fee, and extras were added separately.
+                `;
+            } else {
+                elements.resultSummary.innerHTML = `
+                    No waiver or scholarship was applied in this calculation.
+                    FYDP, registration fee, and extras were added separately.
+                `;
+            }
+
+            updateDiscountStatus(data);
+        }
+
+        function calculateFee() {
+            hideAlert();
+
+            const totalCredits = getNumber(elements.totalCredits);
+            const retakeCredits = getNumber(elements.retakeCredits);
+            const fydpCredits = getNumber(elements.fydpCredits);
+            const perCreditFee = getNumber(elements.perCreditFee);
+            const registrationFee = getNumber(elements.registrationFee);
+            const extras = getNumber(elements.extras);
+            const paidAtRegistration = getNumber(elements.paidAtRegistration);
+
+            const waiver = getSelectedPercentage("waiver");
+            const scholarship = getSelectedPercentage("scholarship");
+            const requestedDiscount = Math.max(waiver, scholarship);
+
+            if (
+                totalCredits < 0 ||
+                retakeCredits < 0 ||
+                fydpCredits < 0 ||
+                perCreditFee < 0 ||
+                registrationFee < 0 ||
+                extras < 0 ||
+                paidAtRegistration < 0
+            ) {
+                showAlert("Values cannot be negative. Please enter valid positive numbers.");
+                return;
+            }
+
+            if (retakeCredits + fydpCredits > totalCredits) {
+                showAlert("Retake Credits + FYDP Credits cannot be greater than Total Credits.");
+                return;
+            }
+
+            const freshCredits = totalCredits - retakeCredits - fydpCredits;
+            const discount = freshCredits < 9 ? 0 : requestedDiscount;
+            const discountApplied = discount > 0;
+
+            let discountSource = "Waiver / Scholarship";
+            if (discount > 0) {
+                if (waiver === scholarship && waiver > 0) {
+                    discountSource = "Waiver / Scholarship";
+                } else if (waiver > scholarship) {
+                    discountSource = "Waiver";
+                } else {
+                    discountSource = "Scholarship";
+                }
+            }
+
+            const freshFee = (freshCredits * perCreditFee) * ((100 - discount) / 100);
+            const retakeFee = (retakeCredits * perCreditFee) / 2;
+            const fydpFee = fydpCredits * perCreditFee;
+            const totalFee = freshFee + retakeFee + fydpFee + registrationFee + extras;
+
+            const type1Base = totalFee;
+            const type1 = installment(type1Base);
+
+            const type2Base = Math.max(totalFee - paidAtRegistration, 0);
+            const type2 = installment(type2Base);
+
+            updateUI({
+                requestedDiscount,
+                discount,
+                discountApplied,
+                discountSource,
+                freshCredits,
+                freshFee,
+                retakeFee,
+                fydpFee,
+                registrationFee,
+                extras,
+                totalFee,
+                paidAtRegistration,
+                type1,
+                type2Base,
+                type2
+            });
+        }
+
+        function resetForm() {
+            hideAlert();
+
+            [
+                elements.totalCredits,
+                elements.retakeCredits,
+                elements.fydpCredits,
+                elements.perCreditFee,
+                elements.registrationFee,
+                elements.extras
+            ].forEach((input) => {
+                input.value = "";
+            });
+
+            elements.paidAtRegistration.value = "15000";
+
+            document.querySelectorAll('input[type="radio"]').forEach((radio) => {
+                radio.checked = false;
+            });
+
+            updateUI({
+                requestedDiscount: 0,
+                discount: 0,
+                discountApplied: false,
+                discountSource: "",
+                freshCredits: 0,
+                freshFee: 0,
+                retakeFee: 0,
+                fydpFee: 0,
+                registrationFee: 0,
+                extras: 0,
+                totalFee: 0,
+                paidAtRegistration: 15000,
+                type1: { first: 0, second: 0, third: 0 },
+                type2Base: 0,
+                type2: { first: 0, second: 0, third: 0 }
+            });
+
+            elements.resultSummary.innerHTML = `
+                Enter your information and press <strong>Calculate Fee</strong> to view the result and
+                installment breakdown.
+            `;
+        }
+
+        elements.calculateBtn.addEventListener("click", calculateFee);
+        elements.resetBtn.addEventListener("click", resetForm);
+
+        document.querySelectorAll("input").forEach((input) => {
+            input.addEventListener("keydown", (e) => {
+                if (e.key === "Enter") {
+                    calculateFee();
+                }
+            });
+        });
+
+        resetForm();
+    </script>
+</body>
+
+</html>
