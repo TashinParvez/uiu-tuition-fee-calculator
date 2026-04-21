@@ -1,6 +1,30 @@
+
+
+<div align="center">
+
 # UIU Tuition Fee Calculator
 
-A clean, fast, and mobile-friendly semester fee calculator for **United International University (UIU)** students.
+### A clean, fast, and mobile-friendly semester fee calculator for **United International University (UIU)** students.
+
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML-Frontend-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML">
+  <img src="https://img.shields.io/badge/CSS-Styling-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS">
+  <img src="https://img.shields.io/badge/JavaScript-Interactive-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/github/stars/TashinParvez/uiu-tuition-fee-calculator?style=flat-square" alt="Stars">
+  <img src="https://img.shields.io/github/forks/TashinParvez/uiu-tuition-fee-calculator?style=flat-square" alt="Forks">
+  <img src="https://img.shields.io/github/issues/TashinParvez/uiu-tuition-fee-calculator?style=flat-square" alt="Issues">
+  <img src="https://img.shields.io/github/last-commit/TashinParvez/uiu-tuition-fee-calculator?style=flat-square" alt="Last Commit">
+  <img src="https://img.shields.io/github/languages/top/TashinParvez/uiu-tuition-fee-calculator?style=flat-square" alt="Top Language">
+  <img src="https://img.shields.io/github/repo-size/TashinParvez/uiu-tuition-fee-calculator?style=flat-square" alt="Repo Size">
+</p>
+
+</div>
+
+---
+
 
 This project helps students estimate their semester payable amount by calculating:
 
@@ -12,7 +36,7 @@ This project helps students estimate their semester payable amount by calculatin
 - waiver / scholarship discounts
 - installment breakdowns
 
-The calculator is designed to make UIU fee estimation easier, clearer, and quicker for students before registration or payment planning. :contentReference[oaicite:1]{index=1}
+The calculator is designed to make UIU fee estimation easier, clearer, and quicker for students before registration or payment planning.
 
 ---
 
