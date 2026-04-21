@@ -21,7 +21,9 @@
   <img src="https://img.shields.io/github/repo-size/TashinParvez/uiu-tuition-fee-calculator?style=flat-square" alt="Repo Size">
 </p>
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-brightgreen?style=for-the-badge)](https://tashinparvez.github.io/uiu-tuition-fee-calculator/)
 </div>
+
 
 ---
 
